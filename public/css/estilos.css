@@ -1,0 +1,6 @@
+body {
+    background-image: url(../images/pizza.png) !important;
+    background-size: 10% !important;
+    background-repeat: no-repeat !important;
+    background-position: 50px 50px !important;
+}

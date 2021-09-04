@@ -1,0 +1,43 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Pizzas
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css")
+		link(rel="stylesheet", href="/css/estilos.css")
+		script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js")
+	body.bg-danger
+		nav.navbar.navbar-toggleable.navbar-inverse.bg-inverse.py-0
+			ul.navbar-nav
+				li.nav-item.mx-5
+					a.nav-link(href="/") home
+				li.nav-item.mx-5
+					a.nav-link(href="/pizzas") pizzas
+		div.container.m-5
+			div.row
+				div.offset-2.col-10
+					h3.mb-5.text-white Lista de pizzas
+					if params.error
+						.alert.alert-danger
+							span #{params.error}
+					table.table.table-striped.mt-5
+						thead
+							tr
+								th nombre
+								th precio
+								th precio IVA
+								th vegetariana
+								th restaurant
+								th
+						tbody
+							for val in pizzas
+								tr
+									td #{val.nombre}
+									td #{val.precio}€
+									td #{val.precioIVA}€
+									td #{val.vegetariana}
+									td #{val.restaurante.nombre}
+									td
+										a.btn.btn-warning.btn-sm.active(href="/pizzas/delete/" + val._id, role="button", aria-pressed="true") Eliminar
